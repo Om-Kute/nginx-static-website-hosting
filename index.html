@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Engineer Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.bg span{
+    position:absolute;
+    display:block;
+    width:20px;
+    height:20px;
+    background:rgba(0,255,255,0.2);
+    border-radius:50%;
+    animation:float 20s linear infinite;
+    bottom:-150px;
+}
+
+.bg span:nth-child(1){left:10%;width:60px;height:60px;animation-duration:15s;}
+.bg span:nth-child(2){left:25%;animation-duration:20s;}
+.bg span:nth-child(3){left:40%;width:80px;height:80px;animation-duration:25s;}
+.bg span:nth-child(4){left:60%;animation-duration:18s;}
+.bg span:nth-child(5){left:75%;width:50px;height:50px;animation-duration:22s;}
+.bg span:nth-child(6){left:90%;width:90px;height:90px;animation-duration:30s;}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-1200px) rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* Navbar */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    color:cyan;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    position:relative;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:cyan;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* Hero Section */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:120px 8%;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+    min-width:300px;
+}
+
+.hero-text h3{
+    font-size:25px;
+    color:cyan;
+    margin-bottom:10px;
+}
+
+.hero-text h1{
+    font-size:70px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text span{
+    color:cyan;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:18px;
+    max-width:600px;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+.buttons button{
+    padding:15px 35px;
+    margin-right:15px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:bold;
+    transition:0.4s;
+}
+
+.btn1{
+    background:linear-gradient(45deg,cyan,#00ff95);
+    color:#000;
+    box-shadow:0 0 20px cyan;
+}
+
+.btn2{
+    background:transparent;
+    border:2px solid cyan !important;
+    color:cyan;
+}
+
+.buttons button:hover{
+    transform:scale(1.08);
+}
+
+/* Hero Image */
+
+.hero-img{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.hero-img img{
+    width:380px;
+    border-radius:50%;
+    border:5px solid cyan;
+    box-shadow:0 0 40px cyan;
+    animation:updown 3s infinite ease-in-out;
+}
+
+@keyframes updown{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+/* Skills */
+
+.section-title{
+    text-align:center;
+    font-size:50px;
+    margin-bottom:60px;
+}
+
+.skills{
+    padding:80px 8%;
+}
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.skill-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:35px;
+    border-radius:20px;
+    transition:0.4s;
+    backdrop-filter:blur(10px);
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(0,255,255,0.4);
+}
+
+.skill-card h2{
+    color:cyan;
+    margin-bottom:15px;
+}
+
+/* Projects */
+
+.projects{
+    padding:80px 8%;
+}
+
+.project-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.project-card:hover{
+    transform:scale(1.04);
+    box-shadow:0 0 35px rgba(0,255,255,0.3);
+}
+
+.project-card h2{
+    color:cyan;
+    margin-bottom:15px;
+}
+
+/* Contact */
+
+.contact{
+    padding:80px 8%;
+    text-align:center;
+}
+
+.contact button{
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(45deg,cyan,#00ff95);
+    color:black;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:25px;
+    transition:0.4s;
+}
+
+.contact button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px cyan;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:rgba(255,255,255,0.05);
+    margin-top:50px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:50px;
+}
+
+.hero-img img{
+    width:280px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Navbar -->
+
+<nav>
+
+    <div class="logo">DevOps.</div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h3>👋 Hello, I'm</h3>
+
+        <h1>Om Kute<br><span>DevOps Engineer</span></h1>
+
+        <p>
+            Passionate DevOps Engineer skilled in Linux, AWS, Docker,
+            Kubernetes, Jenkins and CI/CD Automation.
+            I build scalable cloud infrastructure and automate deployments.
+        </p>
+
+        <div class="buttons">
+            <button class="btn1" onclick="downloadCV()">Download CV</button>
+            <button class="btn2" onclick="showProjects()">View Projects</button>
+        </div>
+
+    </div>
+
+    <div class="hero-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    </div>
+
+</section>
+
+<!-- Skills -->
+
+<section class="skills" id="skills">
+
+    <h1 class="section-title">⚡ Skills</h1>
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+            <h2>🐧 Linux</h2>
+            <p>System Administration, Shell Scripting, Process & User Management.</p>
+        </div>
+
+        <div class="skill-card">
+            <h2>☁ AWS</h2>
+            <p>EC2, IAM, S3, VPC, Load Balancer and Cloud Infrastructure.</p>
+        </div>
+
+        <div class="skill-card">
+            <h2>🐳 Docker</h2>
+            <p>Containerization, Docker Compose and Image Optimization.</p>
+        </div>
+
+        <div class="skill-card">
+            <h2>⚙ Jenkins</h2>
+            <p>CI/CD Pipelines, Automated Deployment and Monitoring.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Projects -->
+
+<section class="projects" id="projects">
+
+    <h1 class="section-title">🚀 Projects</h1>
+
+    <div class="project-container">
+
+        <div class="project-card">
+            <h2>Smart Car Parking System</h2>
+            <p>
+                Cloud-based smart parking management system with automation and monitoring.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h2>Weather Forecast App</h2>
+            <p>
+                Machine Learning weather prediction dashboard using Python & Tkinter.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h2>CI/CD Pipeline Project</h2>
+            <p>
+                Automated deployment pipeline using Jenkins, Docker and GitHub Actions.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Contact -->
+
+<section class="contact" id="contact">
+
+    <h1 class="section-title">📩 Contact Me</h1>
+
+    <p>Email: om@example.com</p>
+    <p>LinkedIn: linkedin.com/in/omkute</p>
+
+    <button onclick="contactMsg()">Hire Me</button>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+    © 2026 Om Kute | DevOps Engineer Portfolio
+</footer>
+
+<script>
+
+function downloadCV(){
+    alert("📄 CV Download Started...");
+}
+
+function showProjects(){
+    document.getElementById("projects").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+function contactMsg(){
+    alert("🚀 Thank You For Visiting My Portfolio!");
+}
+
+/* Typing Effect */
+
+const text="DevOps Engineer";
+let i=0;
+
+function typing(){
+
+    if(i<text.length){
+
+        document.querySelector(".hero-text span").innerHTML += text.charAt(i);
+
+        i++;
+        setTimeout(typing,120);
+    }
+}
+
+document.querySelector(".hero-text span").innerHTML="";
+typing();
+
+</script>
+
+</body>
+</html>
