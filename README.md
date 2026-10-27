@@ -27,8 +27,9 @@ Its is simple ways to host our first understanding website hosting
 2. Install Nginx
 3. Copy project files to:
    /var/www/html
-4. Restart Nginx
-5. Access using Public IP
+4. there is another path to get index file: usr/share/nginx/html 
+5. Restart Nginx
+6. Access using Public IP
 
 ## Commands Used
 
