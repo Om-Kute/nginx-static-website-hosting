@@ -1,7 +1,8 @@
 # DevOps Engineer Portfolio Website 🚀
 
 This is a modern and responsive DevOps portfolio website hosted on AWS EC2 using Nginx.
-Its is simple ways to host our first understanding website hosting
+Its is simple ways to host our first understanding website hosting.
+here you can show your portfolio and our project creation creativity as well.
 ## Technologies Used
 
 - HTML5
