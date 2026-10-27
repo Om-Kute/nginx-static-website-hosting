@@ -33,8 +33,9 @@ Its is simple ways to host our first understanding website hosting
 
 ## Commands Used
 
-```bash
+ bash
 sudo apt update
+sudo apt upgrade 
 sudo apt install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
